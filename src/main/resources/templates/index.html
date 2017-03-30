@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation-icons/3.0/foundation-icons.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.css"/>
+    <!--<link rel="stylesheet" th:href="@{../app.css}" type="text/css">-->
+    <!--<link rel="stylesheet" href="../static/app.css">-->
+
+
+</head>
+<body>
+<div class="expanded row header">
+    <div class="top-bar">
+
+        <h3></h3>
+
+    </div>
+</div>
+<div class="row">
+    <div class="small-6  columns">
+        <h3>Add User</h3>
+        <form th:action="@{/save}" method="post">
+            <input type="text" placeholder="User Name" name="name">
+            <input type="text" placeholder="Email" name="email">
+            <input type="text" placeholder="Phone" name="phone">
+            <input type="submit" class="button" value="Add User">
+        </form>
+    </div>
+    <div class="small-6  columns">
+        <h1>New User</h1>
+        <th:block th:each="user : ${users}">
+
+        <h5 th:text="${'Name: '+user.name}"></h5>
+        <h5 th:text="${'Email: '+user.email}"></h5>
+        <h5 th:text="${'Phone: '+user.phone}"></h5>
+        <hr>
+        </th:block>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/js/foundation.js"></script>
+<script>
+    $(document).foundation();
+</script>
+</body>
+</html>
