@@ -35,7 +35,12 @@
         <h5 th:text="${'Name: '+user.name}"></h5>
         <h5 th:text="${'Email: '+user.email}"></h5>
         <h5 th:text="${'Phone: '+user.phone}"></h5>
-        <hr>
+            <form th:action="@{/delete}" method="get">
+                <input  name="id" th:hidden="true" th:value="${user.id}">
+
+                <input type="submit" class="button" value="Delete">
+            </form>
+            <hr>
         </th:block>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
